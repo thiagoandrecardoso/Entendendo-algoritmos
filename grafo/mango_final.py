@@ -1,7 +1,5 @@
 from collections import deque
 
-search_queue = deque()
-
 g_mango = {
     "i": ["alice", "bob", "claire"],
     "alice": ["peggy"],
@@ -12,12 +10,7 @@ g_mango = {
     "thom": [],
     "jonny": []
 }
-
 sells_mango = {"peggy": True}
-
-search_queue += g_mango["i"]
-
-verify = []
 
 
 def sell_mango(person):
@@ -25,17 +18,22 @@ def sell_mango(person):
         return sells_mango[person]
 
 
-def search_mango(queue):
-    while queue:
-        person = queue.popleft()
-        if person not in verify:
+def search(name):
+    search_queue = deque()
+    search_queue += g_mango[name]
+    verified = []
+    while search_queue:
+        person = search_queue.popleft()
+        if person not in verified:
             if sell_mango(person):
                 print(person + " sells mango!")
                 return True
             else:
-                queue += g_mango[person]
-                verify.append(person)
+                search_queue += g_mango[person]
+                verified.append(person)
     return False
 
 
-search_mango(search_queue)
+search("i")
+
+
