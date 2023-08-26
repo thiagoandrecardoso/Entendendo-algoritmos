@@ -19,7 +19,14 @@ processed = []
 
 
 def find_lowest_cost(c):
-    return "b"
+    minor_cost = float("inf")
+    node_minor_cost = None
+    for node_cost in c:
+        current_cost = c[node_cost]
+        if current_cost < minor_cost and node_cost not in processed:
+            minor_cost = current_cost
+            node_minor_cost = node_cost
+    return node_minor_cost
 
 
 node = find_lowest_cost(costs)
