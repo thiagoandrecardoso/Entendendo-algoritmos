@@ -40,3 +40,13 @@ while node is not None:
             parents[n] = node
     processed.append(node)
     node = find_lowest_cost(costs)
+
+print(parents)
+
+
+"""
+Width-first search is used to calculate the minimum path for an unweighted graph.
+Dijkstra's algorithm is used to calculate the minimum path for a weighted graph.
+Dijkstra's algorithm works when all the weights are positive.
+If your graph has negative weights, use the Bellman-Ford algorithm.
+"""
