@@ -20,3 +20,6 @@ print(binary_search(number_list, 3))
 print(binary_search(number_list, -1))
 
 # Big O: O(log n)
+'''
+Binary search is an efficient algorithm for finding an element in an ordered list.
+'''
