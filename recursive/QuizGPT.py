@@ -2,7 +2,7 @@
 # Sum = n + (n-1) + (n-2) + ... + 3 + 2 + 1.
 
 # Sum of the first n natural numbers
-# It performs a total of 10 operations (4 recursive calls and 6 sums).
+# It performs a total of 7 operations (4 recursive calls and 3 sums).
 def sum_first_natural_numbers(n):
     if n == 0:
         return n
