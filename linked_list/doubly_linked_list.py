@@ -8,6 +8,7 @@ class Node:
 class DoublyLinkedList:
     def __init__(self):
         self.head = None
+        self.tail = None
 
     def prepend(self, data):
         new_node = Node(data)
@@ -20,12 +21,11 @@ class DoublyLinkedList:
         new_node = Node(data)
         if not self.head:
             self.head = new_node
+            self.tail = new_node
         else:
-            current = self.head
-            while current.next:
-                current = current.next
-            current.next = new_node
-            current.prev = current
+            new_node.prev = self.tail
+            self.tail.next = new_node
+            self.tail = new_node
 
     def display(self):
         current = self.head
@@ -40,6 +40,16 @@ my_list = DoublyLinkedList()
 my_list.append(1)
 my_list.append(2)
 my_list.append(3)
+
+print("Lista original:")
+my_list.display()
+
 my_list.prepend(0)
 
+print("\nLista após a inserção no início:")
+my_list.display()
+
+my_list.append(4)
+
+print("\nLista após a inserção no final:")
 my_list.display()
